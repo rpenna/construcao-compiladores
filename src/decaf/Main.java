@@ -14,7 +14,6 @@ class Main {
 
         	InputStream inputStream = args.length == 0 ?
                     System.in : new java.io.FileInputStream(CLI.infile);
-
         	if (CLI.target == CLI.SCAN)
         	{
         		DecafLexer lexer = new DecafLexer(new ANTLRInputStream(inputStream));
@@ -31,9 +30,15 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
-		        			case DecafLexer.ID:
-		        				type = " IDENTIFIER";
-		        				break;
+							case DecafLexer.ID:
+								type = " IDENTIFIER";
+								break;
+							case DecafLexer.CHAR:
+								type = " CHARLITERAL";
+								break;
+							case DecafLexer.BACK:
+								type = " BACKSLASHED CHARACTER";
+								break;
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
