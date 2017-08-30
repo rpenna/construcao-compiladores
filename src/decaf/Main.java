@@ -36,9 +36,6 @@ class Main {
 							case DecafLexer.CHAR:
 								type = " CHARLITERAL";
 								break;
-							case DecafLexer.BACK:
-								type = " BACKSLASHED CHARACTER";
-								break;
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
