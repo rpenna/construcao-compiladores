@@ -37,11 +37,18 @@ class Main {
 								type = " CHARLITERAL";
 								break;
 							case DecafLexer.STRING:
-								type = "STRINGLITERAL";
+								type = " STRINGLITERAL";
 								break;
 							case DecafLexer.NUMBER:
-								type = "INTLITERAL";
+								type = " INTLITERAL";
 								break;
+							case DecafLexer.BOOLEAN:
+								type = " BOOLEANLITERAL";
+								break;
+							default:
+								type = "";
+								break;
+	
 		        			}
 		        			System.out.println (token.getLine() + type + " " + text);
 		        		}
