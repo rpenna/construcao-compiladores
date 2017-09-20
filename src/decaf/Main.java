@@ -42,8 +42,20 @@ class Main {
 							case DecafLexer.NUMBER:
 								type = " INTLITERAL";
 								break;
-							case DecafLexer.BOOLEAN:
+							case DecafLexer.BOOL:
 								type = " BOOLEANLITERAL";
+								break;
+							case DecafLexer.TK_class:
+								type = " CLASSPROGRAM";
+								break;
+							case DecafLexer.RCURLY:
+								type = " RCURLY";
+								break;
+							case DecafLexer.LCURLY:
+								type = " LCURLY";
+								break;
+							case DecafLexer.TYPE:
+								type = " TYPE";
 								break;
 							default:
 								type = "";
