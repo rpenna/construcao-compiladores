@@ -21,17 +21,19 @@ LCURLY : '{';
 RCURLY : '}';
 
 IF : 'if';
-BREAK : ('b' 'r' 'e' 'a' 'k');
-CALLOUT : ('c' 'a' 'l' 'l' 'o' 'u' 't');
-CLASS : ('c' 'l' 'a' 's' 's');
-CONTINUE : ('c' 'o' 'n' 't' 'i' 'n' 'u' 'e');
-ELSE : ('e' 'l' 's' 'e');
-FOR : ('f' 'o' 'r');
-RETURN : ('r' 'e' 't' 'u' 'r' 'n');
+BREAK : 'b' 'r' 'e' 'a' 'k';
+CALLOUT : 'c' 'a' 'l' 'l' 'o' 'u' 't';
+CLASS : 'c' 'l' 'a' 's' 's';
+CONTINUE : 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e';
+ELSE : 'e' 'l' 's' 'e';
+FOR : 'f' 'o' 'r';
+RETURN : 'r' 'e' 't' 'u' 'r' 'n';
 
-VOID : ('v' 'o' 'i' 'd');
+VOID : 'v' 'o' 'i' 'd';
 
-TYPE : (INT|BOOLEAN);
+INT : ('i' 'n' 't');
+
+BOOLEAN : ('b' 'o' 'o' 'l' 'e' 'a' 'n');
 
 BOOL : ('f' 'a' 'l' 's' 'e') | ('t' 'r' 'u' 'e');
 
@@ -42,7 +44,19 @@ NUMBER : ('0x'  ('a'..'f' | 'A'..'F'| '0'..'9')+) | ('0'..'9')+;
 
 SL_COMMENT : '//' (~'\n')* '\n' -> skip;
 
-OPERATOR : '+' | '-' | '*' | '<' | '<' '=' | '>' '=' | '!' '=' | '=' '=' | '>' | '|' '|' | '&' '&' | '%'  | '!';
+OPERATOR : '<' | '<' '=' | '>' '=' | '!' '=' | '=' '=' | '>' | '|' '|' | '&' '&'; 
+
+MULT : '*';
+
+DIV : '/';
+
+MOD : '%';
+
+NOT : '!';
+
+PLUS : '+';
+
+MINUS : '-';
 
 END_OF_LINE : ';';
 
@@ -56,7 +70,11 @@ RPAR : ')';
 
 COMMA : ',';
 
-ASSIGN : '=' | '+' '=' | '-' '=';
+ASSIGN : '=';
+
+ASSIGN_PLUS: '+' '=';
+
+ASSIGN_MINUS: '-' '=';
 
 CHAR : '\'' (ESC|~('\''|'\\'|'\n'|'"'|'\t')) '\'';
 
@@ -66,9 +84,3 @@ WS_ : (' ' | '\n' | '\t') -> skip;
 
 fragment
 ESC :  '\\' ('n'|'"'|'t'|'\\'|'\'');
-
-fragment
-INT : ('i' 'n' 't');
-
-fragment
-BOOLEAN : ('b' 'o' 'o' 'l' 'e' 'a' 'n');
