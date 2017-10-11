@@ -21,12 +21,19 @@ LCURLY : '{';
 RCURLY : '}';
 
 IF : 'if';
+
 BREAK : 'b' 'r' 'e' 'a' 'k';
+
 CALLOUT : 'c' 'a' 'l' 'l' 'o' 'u' 't';
+
 CLASS : 'c' 'l' 'a' 's' 's';
+
 CONTINUE : 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e';
+
 ELSE : 'e' 'l' 's' 'e';
+
 FOR : 'f' 'o' 'r';
+
 RETURN : 'r' 'e' 't' 'u' 'r' 'n';
 
 VOID : 'v' 'o' 'i' 'd';
@@ -44,7 +51,21 @@ NUMBER : ('0x'  ('a'..'f' | 'A'..'F'| '0'..'9')+) | ('0'..'9')+;
 
 SL_COMMENT : '//' (~'\n')* '\n' -> skip;
 
-OPERATOR : '<' | '<' '=' | '>' '=' | '!' '=' | '=' '=' | '>' | '|' '|' | '&' '&'; 
+LT : '<';
+
+LET : '<' '=';
+
+GET : '>' '=';
+
+GT : '>';
+
+AND : '&' '&';
+
+OR : '|' '|';
+
+EQUAL : '=' '=';
+
+DIFF: '!' '=';
 
 MULT : '*';
 
