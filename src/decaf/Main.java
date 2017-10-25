@@ -39,6 +39,10 @@ class Main {
 
 		        			switch (token.getType())
 		        			{
+							
+							case DecafLexer.NUMBER:
+								type = " INTLITERAL";
+								break;
 							case DecafLexer.ID:
 								type = " IDENTIFIER";
 								break;
@@ -47,9 +51,6 @@ class Main {
 								break;
 							case DecafLexer.STRING:
 								type = " STRINGLITERAL";
-								break;
-							case DecafLexer.NUMBER:
-								type = " INTLITERAL";
 								break;
 							case DecafLexer.BOOL:
 								type = " BOOLEANLITERAL";
@@ -62,9 +63,6 @@ class Main {
 								break;
 							case DecafLexer.LCURLY:
 								type = " LCURLY";
-								break;
-							case DecafLexer.TYPE:
-								type = " TYPE";
 								break;
 							default:
 								type = "";
@@ -86,31 +84,7 @@ class Main {
         		DecafLexer lexer = new DecafLexer(new ANTLRInputStream(inputStream));
 				CommonTokenStream tokens = new CommonTokenStream(lexer);
         		DecafParser parser = new DecafParser(tokens);
-               		//parser.program();
-			// Adiciona as regras semÃ¢nticas
-		        ParseTree tree = parser.program();
-
-		        if (CLI.debug) {
-		            // Se estiver no modo debug imprime a Ã¡rvore de parsing
-		            // Create Tree View
-		            // Source: https://stackoverflow.com/questions/23809005/how-to-display-antlr-tree-gui
-
-
-		            //show AST in console
-		            System.out.println(tree.toStringTree(parser));
-
-		            //show AST in GUI
-		            JFrame frame = new JFrame("Antlr AST");
-		            JPanel panel = new JPanel();
-		            TreeViewer viewr = new TreeViewer(Arrays.asList(
-		                    parser.getRuleNames()),tree);
-		            viewr.setScale(1.5);//scale a little
-		            panel.add(viewr);
-		            frame.add(panel);
-		            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		            frame.setSize(200,200);
-		            frame.setVisible(true);
-		        }
+                parser.program();
         	}
         	
         } catch(Exception e) {
